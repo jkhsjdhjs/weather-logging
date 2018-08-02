@@ -35,7 +35,7 @@ else
 
 //insert values
 $dbh = new PDO("pgsql:dbname=home;user=home;host=/home/jkhsjdhjs/postgresql-remote");
-$dbh.execute("SET search_path = weather_logging");
+$dbh->exec("SET search_path = weather_logging");
 
 $query = $dbh->prepare("INSERT INTO weather (ds1820_temp, am2302_temp, am2302_humidity, bmp180_temp, bmp180_pressure) VALUES (?, ?, ?, ?, ?)");
 
