@@ -1,0 +1,3 @@
+[submodule "lol_dht22"]
+	path = lol_dht22
+	url = https://github.com/technion/lol_dht22.git
