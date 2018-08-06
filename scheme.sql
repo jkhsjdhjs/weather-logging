@@ -88,7 +88,7 @@ CREATE OR REPLACE FUNCTION weather_quantiles
     FROM
       f
     GROUP BY
-      (n / ((SELECT COUNT(*) FROM f) / ($1 - 1)))
+      (n / ((SELECT COUNT(*) FROM f) / GREATEST($1 - 1, 1)))
     ORDER BY
       time ASC
    $$ language SQL
