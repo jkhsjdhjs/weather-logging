@@ -72,7 +72,10 @@ CREATE OR REPLACE FUNCTION weather_quantiles
       bmp180_pressure as pressure,
       row_number() OVER (ORDER BY created_at ASC) as n
       FROM weather
-      WHERE created_at BETWEEN $2 AND $3
+      WHERE
+        ( $2 is null or created_at > $2)
+        and
+        ( $3 is null or created_at <= $3)
     )
     SELECT
       percentile_disc(0.5) WITHIN GROUP (ORDER BY created_at) as time,
