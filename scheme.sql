@@ -48,13 +48,15 @@ CREATE OR REPLACE VIEW weather_hourly AS
     date_trunc('hour', created_at)
 ;
 
-CREATE OR REPLACE FUNCTION weather_quantiles
+DROP FUNCTION weather_quantiles(integer,timestamp with time zone,timestamp with time zone);
+
+CREATE FUNCTION weather_quantiles
   ( quantiles  INTEGER
   , start_time TIMESTAMPTZ DEFAULT NULL
   , end_time   TIMESTAMPTZ DEFAULT NULL
   )
   RETURNS TABLE
-  ( percentile      TIMESTAMPTZ
+  ( "time"          TIMESTAMPTZ
   , temp_avg        NUMERIC(6,3)
   , temp_stddev     NUMERIC(6,3)
   , humidity_avg    NUMERIC(3,1)
