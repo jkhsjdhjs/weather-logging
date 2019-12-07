@@ -1,6 +1,6 @@
 <?php
 
-CONST API_KEY = "";
+const API_KEY = "";
 
 // function for http requests
 function fetch($url, $method = "GET", $data = null, $content_type = "application/x-www-form-urlencoded") {
