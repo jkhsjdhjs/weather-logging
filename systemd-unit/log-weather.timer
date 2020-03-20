@@ -1,0 +1,8 @@
+[Unit]
+Description=Logs current Temperature/Humidity/Pressure to remote DB
+
+[Timer]
+OnCalendar=*:0/10
+
+[Install]
+WantedBy=timers.target

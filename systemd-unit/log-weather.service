@@ -1,0 +1,6 @@
+[Unit]
+Description=Logs current Temperature/Humidity/Pressure to remote DB
+
+[Service]
+ExecStart=%h/weather-logging/log-weather.php
+WorkingDirectory=%h/weather-logging

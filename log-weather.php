@@ -153,7 +153,8 @@ for($retry = 0; $retry <= COMPLETE_REREAD_TRIES && $reread; $retry++) {
         foreach($SENSORS as $sensor) {
             // if deviation is too high, re-read
             if(abs($sensor->data->temperature - $median) > HIGH_DEVIATION) {
-                fwrite(STDERR, "$sensor->name has a high deviation from median, ");
+                fwrite(STDERR, "$sensor->name temperature has a high deviation from median" . PHP_EOL);
+                fwrite(STDERR, "data: " . json_encode($sensor->data) . " median: $median" . PHP_EOL);
                 if($i >= DEVIATION_CHECK_TRIES) {
                     if($retry >= COMPLETE_REREAD_TRIES)
                         fwrite(STDERR, "ignoring..." . PHP_EOL);
