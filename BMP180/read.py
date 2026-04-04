@@ -1,12 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from Adafruit_BMP085 import BMP085
+from Adafruit_BMP import BMP085
 import json
 
-bmp = BMP085(0x77)
+bmp = BMP085.BMP085()
 
-temp = bmp.readTemperature()
-pressure = bmp.readPressure()
+temp = bmp.read_temperature()
+pressure = bmp.read_pressure()
 
-print json.dumps({'temp': temp, 'pressure': pressure / 100.0})
+print(json.dumps({'temp': temp, 'pressure': pressure / 100.0}))

@@ -72,7 +72,7 @@ function read_am2302() {
 }
 
 function read_bmp180() {
-    $bmp180_data = json_decode(`BMP180/read.py`);
+    $bmp180_data = json_decode(`BMP180/venv/bin/python3 BMP180/read.py`);
     if(!is_null($bmp180_data))
         return new SensorData($bmp180_data->temp, null, $bmp180_data->pressure);
     return false;

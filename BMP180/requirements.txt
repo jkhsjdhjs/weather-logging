@@ -1,0 +1,1 @@
+adafruit-bmp~=1.5
